@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaCodeblox.UI", "ProvaCodeblox\ProvaCodeblox.UI.csproj", "{72F62B9E-7AA7-4995-B81E-EE7602C9A14E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dominio", "Dominio", "{2E0B004D-5F3B-4777-A2CD-B48748AD34B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositorios", "Repositorios", "{F34E6A18-37D9-468D-8F1B-BFEAE0E903D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servicos", "Servicos", "{3124CDB2-F3C1-46BA-95D0-A5C08CD72DF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FE6295D8-AF44-431D-8656-7048DDEB7D24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaCodeblox.Dominio", "ProvaCodeblox.Dominio\ProvaCodeblox.Dominio.csproj", "{BF74BF0B-8462-4394-ABE3-63CC9B841C4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaCodeblox.Repositorio", "ProvaCodeblox.Repositorio\ProvaCodeblox.Repositorio.csproj", "{D51947D4-98C2-4975-AE9E-8561A04127A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaCodeblox.Servicos", "ProvaCodeblox.Servicos\ProvaCodeblox.Servicos.csproj", "{806936C4-07B0-42EF-A672-DAFC733BB864}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaCodeblox.Tests", "ProvaCodeblox.Tests\ProvaCodeblox.Tests.csproj", "{288120B8-3D15-4896-A3A9-C841B02E7805}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72F62B9E-7AA7-4995-B81E-EE7602C9A14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72F62B9E-7AA7-4995-B81E-EE7602C9A14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72F62B9E-7AA7-4995-B81E-EE7602C9A14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72F62B9E-7AA7-4995-B81E-EE7602C9A14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF74BF0B-8462-4394-ABE3-63CC9B841C4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF74BF0B-8462-4394-ABE3-63CC9B841C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF74BF0B-8462-4394-ABE3-63CC9B841C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF74BF0B-8462-4394-ABE3-63CC9B841C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51947D4-98C2-4975-AE9E-8561A04127A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51947D4-98C2-4975-AE9E-8561A04127A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51947D4-98C2-4975-AE9E-8561A04127A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51947D4-98C2-4975-AE9E-8561A04127A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{806936C4-07B0-42EF-A672-DAFC733BB864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{806936C4-07B0-42EF-A672-DAFC733BB864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{806936C4-07B0-42EF-A672-DAFC733BB864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{806936C4-07B0-42EF-A672-DAFC733BB864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{288120B8-3D15-4896-A3A9-C841B02E7805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{288120B8-3D15-4896-A3A9-C841B02E7805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{288120B8-3D15-4896-A3A9-C841B02E7805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{288120B8-3D15-4896-A3A9-C841B02E7805}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF74BF0B-8462-4394-ABE3-63CC9B841C4F} = {2E0B004D-5F3B-4777-A2CD-B48748AD34B3}
+		{D51947D4-98C2-4975-AE9E-8561A04127A0} = {F34E6A18-37D9-468D-8F1B-BFEAE0E903D1}
+		{806936C4-07B0-42EF-A672-DAFC733BB864} = {3124CDB2-F3C1-46BA-95D0-A5C08CD72DF5}
+		{288120B8-3D15-4896-A3A9-C841B02E7805} = {FE6295D8-AF44-431D-8656-7048DDEB7D24}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7ABF8B84-C7A6-43B4-ACCA-0171C682BAD2}
+	EndGlobalSection
+EndGlobal
