@@ -13,6 +13,7 @@ namespace ProvaCodeblox.Repositorio.Configuracoes
             builder.Property(produto => produto.Tipo).HasMaxLength(100).IsRequired();
             builder.Property(produto => produto.Quantidade).IsRequired();
             builder.Property(produto => produto.Descricao).HasMaxLength(500);
+            builder.Property(produto => produto.Tipo).HasConversion<string>();
         }
     }
 }

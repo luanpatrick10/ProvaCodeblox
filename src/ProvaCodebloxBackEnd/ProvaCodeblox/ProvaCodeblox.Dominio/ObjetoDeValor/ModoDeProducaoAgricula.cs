@@ -1,6 +1,8 @@
 ﻿namespace ProvaCodeblox.Dominio.ObjetoDeValor
 {
-    public abstract class ModoDeProducaoAgricula
+    public enum ModoDeProducaoAgricula
     {
+        Organico,
+        NaoOrganico
     }
 }

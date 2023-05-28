@@ -12,7 +12,7 @@ namespace ProvaCodeblox.Dominio.Entidades
         public ModoDeProducaoAgricula? Tipo { get; private set; }
 
         public Produto() { }
-        public Produto(string? nome, decimal precoDeVenda, string descricao, int quantidade, ModoDeProducaoAgricula tipo)
+        public Produto(string? nome, decimal precoDeVenda, string descricao, int quantidade, ModoDeProducaoAgricula? tipo)
         {
             Nome = nome;
             PrecoDeVenda = precoDeVenda;

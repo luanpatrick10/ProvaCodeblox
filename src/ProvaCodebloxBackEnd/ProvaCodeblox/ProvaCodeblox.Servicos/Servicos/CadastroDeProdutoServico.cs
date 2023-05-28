@@ -1,46 +1,55 @@
 ﻿using ProvaCodeblox.Dominio.Entidades;
+using ProvaCodeblox.Dominio.ObjetosDeDominio;
 using ProvaCodeblox.Dominio.Repositoiros;
 using ProvaCodeblox.Dominio.Servicos;
+using ProvaCodeblox.Servicos.Excecoes;
 
 namespace ProvaCodeblox.Servicos.Servicos
 {
-    public class CadastroDeProdutoServico : ICadastroDeProdutoServico
+    public class CadastroDeProdutoServico : ServicosDeCRUD<Produto>, ICadastroDeProdutoServico
     {
         private IProdutoRepositorio _repositorioDeProduto;
-        public CadastroDeProdutoServico(IProdutoRepositorio repositorioDeProduto)
+        public CadastroDeProdutoServico(IProdutoRepositorio repositorioDeProduto) : base(repositorioDeProduto)
         {
             _repositorioDeProduto = repositorioDeProduto;
         }
 
-        public async Task<Produto> Atualizar(Produto produto)
+        public async Task<Produto> ObterProdutoPorNome(string nome)
         {
-            produto.ValidarEntidade();
-            await _repositorioDeProduto.Atualizar(produto);
-            return produto;
-
-        }
-
-        public async Task<Produto> Criar(Produto produto)
-        {
-            produto.ValidarEntidade();
-            await _repositorioDeProduto.Criar(produto);
+            Produto produto = await _repositorioDeProduto.ObterProdutoPorNome(nome);
+            ValidarSeConsultaNaoEstaNula(produto);
             return produto;
         }
-
-        public async Task Deletar(int id)
+        protected override async Task ValidarInclusao(Produto produto)
         {
-            Produto produto = await _repositorioDeProduto.ObtePorId(id);
-            await _repositorioDeProduto.Deletar(produto);
+            await ValidarSeEhProdutoNovo(produto);
+            await ValidarSeEhNomeEhUnico(produto.Nome);
+            base.ValidarInclusao(produto);
+        }
+        protected override async Task ValidaAlteracao(Produto produto)
+        {
+            await ValidarSeEhNomeEhUnico(produto.Nome);
+            base.ValidaAlteracao(produto);
         }
 
-        public async Task<Produto> ObterPorId(int? id)
-        {
-            return await _repositorioDeProduto.ObtePorId(id);
-        }
 
-        public async Task<ICollection<Produto>> ObterTodos()
+        private async Task ValidarSeEhProdutoNovo(Produto produto)
         {
-            return await _repositorioDeProduto.ObterProdutos();
+            try
+            {
+                await ObterPorId(produto.Id);
+                throw new ValidacaoException(MensagensDeValidacoes.ObjetoJaCadastrado);
+            }
+            catch (NaoEncontradoException) { }
+        }
+        private async Task ValidarSeEhNomeEhUnico(string nomeDoProduto)
+        {
+            try
+            {
+                Produto produto = await ObterProdutoPorNome(nomeDoProduto);
+                throw new ValidacaoException(MensagensDeValidacoes.ObjetoJaCadastradoComEsseNome(nameof(Produto)));
+            }
+            catch (NaoEncontradoException) { }
         }
     }
 }

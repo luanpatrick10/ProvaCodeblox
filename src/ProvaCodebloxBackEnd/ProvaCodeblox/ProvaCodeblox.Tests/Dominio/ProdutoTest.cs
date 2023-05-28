@@ -9,13 +9,13 @@ namespace ProvaCodeblox.Tests.Dominio
         [Test]
         public void TestaCriarProdutoComNomeNulo()
         {
-            Assert.Throws<ExcecoesDeDominio>(() => new Produto(nome: "Maça", precoDeVenda: 10, descricao: "", quantidade: 10, tipo: new Organico()));
+            Assert.Throws<ExcecoesDeDominio>(() => new Produto(nome: "Maça", precoDeVenda: 10, descricao: "", quantidade: 10, tipo: ModoDeProducaoAgricula.Organico));
         }
 
         [Test]
         public void TestaCriarProdutoComPrecoDeVendaZerado()
         {
-            Assert.Throws<ExcecoesDeDominio>(() => new Produto(nome: "Maça", precoDeVenda: -1, descricao: "", quantidade: 10, tipo: new Organico()));
+            Assert.Throws<ExcecoesDeDominio>(() => new Produto(nome: "Maça", precoDeVenda: -1, descricao: "", quantidade: 10, tipo: ModoDeProducaoAgricula.Organico));
         }
 
         [Test]

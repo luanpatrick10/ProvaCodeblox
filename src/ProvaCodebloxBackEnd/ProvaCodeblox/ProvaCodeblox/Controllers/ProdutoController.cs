@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProvaCodeblox.Dominio.Entidades;
 using ProvaCodeblox.Dominio.Servicos;
 using ProvaCodeblox.Servicos.DTOS;
+using ProvaCodeblox.Servicos.Excecoes;
 
 namespace ProvaCodeblox.UI.Controllers
 {
@@ -24,11 +25,15 @@ namespace ProvaCodeblox.UI.Controllers
             try
             {
                 await _cadastroDeProduto.Criar(_mapper.Map<Produto>(novoProdutoDTO));
-                return Ok();
+                return StatusCode(StatusCodes.Status201Created);
             }
-            catch (Exception ex)
+            catch (ValidacaoException ex)
             {
                 return BadRequest(ex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
 
@@ -39,9 +44,13 @@ namespace ProvaCodeblox.UI.Controllers
             {
                 return Ok(_mapper.Map<IEnumerable<Produto>>(await _cadastroDeProduto.ObterTodos()));
             }
-            catch (Exception ex)
+            catch (SemDadosDisponiveisException)
             {
-                return BadRequest(ex.Message);
+                return NoContent();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
         [HttpGet("obter-produto/{id}")]
@@ -51,9 +60,13 @@ namespace ProvaCodeblox.UI.Controllers
             {
                 return Ok(_mapper.Map<Produto>(await _cadastroDeProduto.ObterPorId(id)));
             }
-            catch (Exception ex)
+            catch (NaoEncontradoException ex)
             {
-                return BadRequest(ex.Message);
+                return NotFound(ex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
         [HttpDelete("deletar-produto")]
@@ -64,9 +77,17 @@ namespace ProvaCodeblox.UI.Controllers
                 await _cadastroDeProduto.Deletar(id);
                 return Ok();
             }
-            catch (Exception ex)
+            catch (NaoEncontradoException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ValidacaoException ex)
             {
                 return BadRequest(ex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
 
@@ -78,9 +99,17 @@ namespace ProvaCodeblox.UI.Controllers
                 await _cadastroDeProduto.Atualizar(_mapper.Map<Produto>(produtoDTO));
                 return Ok();
             }
-            catch (Exception ex)
+            catch (NaoEncontradoException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ValidacaoException ex)
             {
                 return BadRequest(ex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
     }

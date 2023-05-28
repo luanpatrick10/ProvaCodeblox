@@ -1,12 +1,12 @@
-﻿namespace ProvaCodeblox.Dominio.Servicos
+﻿namespace ProvaCodeblox.Dominio.Repositoiros
 {
-    public interface ICrudServico<T>
+    public interface ICrudRepositorio<T>
     {
         Task<ICollection<T>> ObterTodos();
         Task<T> ObterPorId(int? id);
 
         Task Criar(T entidade);
         Task Atualizar(T entidade);
-        Task Deletar(int id);
+        Task Deletar(T entidade);
     }
 }

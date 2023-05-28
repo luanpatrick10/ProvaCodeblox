@@ -2,13 +2,8 @@
 
 namespace ProvaCodeblox.Dominio.Repositoiros
 {
-    public interface IProdutoRepositorio
+    public interface IProdutoRepositorio : ICrudRepositorio<Produto>
     {
-        Task<ICollection<Produto>> ObterProdutos();
-        Task<Produto> ObtePorId(int? id);
-
-        Task Criar(Produto produto);
-        Task Atualizar(Produto produto);
-        Task Deletar(Produto produto);
+        Task<Produto> ObterProdutoPorNome(string nome);
     }
 }

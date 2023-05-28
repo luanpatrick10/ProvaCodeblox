@@ -23,6 +23,8 @@
         }
 
         public static string PropriedadeNulaOuVazio = "Essa propriedade não pode ser nula ou vazia.";
+        public static string ObjetoJaCadastrado = "Esse objeto já está cadastrado.";
+        public static string ObjetoJaCadastradoComEsseNome(string nomeDoObjeto) => $"Já existe um {nomeDoObjeto} com esse nome.";
 
     }
 }

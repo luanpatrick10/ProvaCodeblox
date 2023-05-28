@@ -1,8 +1,10 @@
+using ProvaCodeblox.Servicos.DTOS.Mapping;
 using ProvaCodeblox.UI.InjecaoDeDependencia;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAutoMapper(typeof(AutomapperConfig));
 builder.Services.RegistrarRepositorios(builder.Configuration);
 builder.Services.RegistrarServicos();
 builder.Services.AddControllers();
