@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2023-05-29T01:39:17.6683777Z;True|2023-05-28T21:04:46.5516458-03:00;True|2023-05-28T21:00:15.1484225-03:00;True|2023-05-28T20:15:04.7305535-03:00;True|2023-05-28T20:13:22.8012562-03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SqliteConnectionString">
+      <Value>Data Source=ProvaCodeblox.db</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

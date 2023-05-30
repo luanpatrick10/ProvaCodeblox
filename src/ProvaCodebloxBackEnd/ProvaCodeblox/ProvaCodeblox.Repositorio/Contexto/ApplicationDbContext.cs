@@ -9,7 +9,7 @@ namespace ProvaCodeblox.Repositorio.Contexto
         {
         }
 
-        public DbSet<Produto> Podutos { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

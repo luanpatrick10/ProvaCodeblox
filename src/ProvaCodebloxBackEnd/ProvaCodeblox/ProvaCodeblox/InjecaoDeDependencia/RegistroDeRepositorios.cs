@@ -15,5 +15,17 @@ namespace ProvaCodeblox.UI.InjecaoDeDependencia
             );
             return services;
         }
+
+        public static WebApplication CriarBancoDeDados(this WebApplication app)
+        {
+            using (var scope = app.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+                context.Database.Migrate();
+            }
+            return app;
+        }
     }
 }

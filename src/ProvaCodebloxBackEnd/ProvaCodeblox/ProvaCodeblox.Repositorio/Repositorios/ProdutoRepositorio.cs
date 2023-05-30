@@ -22,7 +22,7 @@ namespace ProvaCodeblox.Repositorio.Repositorios
         public async Task Criar(Produto produto)
         {
 
-            _applicationDbContext.Podutos.Add(produto);
+            _applicationDbContext.Produtos.Add(produto);
             await _applicationDbContext.SaveChangesAsync();
         }
 
@@ -34,17 +34,17 @@ namespace ProvaCodeblox.Repositorio.Repositorios
 
         public async Task<Produto> ObterPorId(int? id)
         {
-            return await _applicationDbContext.Podutos.FirstAsync(produto => produto.Id == id);
+            return await _applicationDbContext.Produtos.FirstAsync(produto => produto.Id == id);
         }
 
         public async Task<Produto> ObterProdutoPorNome(string nome)
         {
-            return await _applicationDbContext.Podutos.FirstOrDefaultAsync(produto => produto.Nome == nome);
+            return await _applicationDbContext.Produtos.FirstOrDefaultAsync(produto => produto.Nome == nome);
         }
 
         public async Task<ICollection<Produto>> ObterTodos()
         {
-            return await _applicationDbContext.Podutos.ToListAsync();
+            return await _applicationDbContext.Produtos.ToListAsync();
         }
     }
 }
